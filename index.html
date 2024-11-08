@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bike Room Registration - OAK & CO.2 (HSCC 753)</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRjTRKbT292SYnIZxu55GPD-O7BG8extPnog&s" alt="OAK & CO Logo" class="oak-logo">
+            <h1>Bike Room Registration - OAK & CO.2 (HSCC 753)</h1>
+        </div>
+    </header>
+
+    <main>
+        <!-- Welcome Section -->
+        <section class="intro fade-in">
+            <h2 class="bold-uppercase">Welcome to the Bike Room Registration</h2>
+            <p><strong>Here are the instructions for registration:</strong></p>
+            <div class="instructions">
+                <ul>
+                    <li>Submit your registration form with security.</li>
+                    <li>Ensure the form is filled out with accurate information.</li>
+                    <li>Follow the rules and regulations for bike storage.</li>
+                    <li>Registration is based on a first-come, first-serve basis.</li>
+                    <li>Access is free until April 1st, 2025. After that, an annual fee of $25 applies.</li>
+                </ul>
+            </div>
+            <button onclick="showPolicies()" class="button-hover">Click to Read Bike Room Policies</button>
+            <button onclick="showManagementLogin()" class="button-hover">Management Login</button>
+        </section>
+
+        <!-- Images Section -->
+        <section class="images">
+            <div class="image-container">
+                <img src="https://cyclesafe.com/wp-content/uploads/2016/08/bike-wall-rack-bike-room-wesleyan-college.jpg" alt="Bike Room Image 1" class="image">
+                <img src="https://condonow.com/Oak-Co-Condos-2/images/Oak-amp-Co-Condos-2-2-v21-full.jpg" alt="Bike Room Image 2" class="image">
+            </div>
+        </section>
+
+        <!-- Management Login Section -->
+        <section class="management-login fade-in" id="managementLoginSection" style="display:none;">
+    <h3>Management Login</h3>
+    <p>If you are a member of the management team, please log in to access the admin portal:</p>
+    <form onsubmit="return checkLogin(event)">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        
+        <button type="submit" class="button-hover">Login</button>
+    </form>
+    <button onclick="goBack()" class="button-hover">Back to Welcome Page</button>
+</section>
+
+<script>
+    function checkLogin(event) {
+        event.preventDefault();
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
+        
+        // Check for correct username and password
+        if (username === "OAK2" && password === "2481HSCC753") {
+            // Redirect to the Google Document if credentials are correct
+            window.location.href = "https://docs.google.com/document/d/1y3Le_tbvsG1f8eYyKb-yidVu6ZAFRzOEVcbrFJT_UtQ/edit?usp=sharing";
+        } else {
+            alert("Invalid credentials. Please try again.");
+        }
+    }
+</script>
+
+        <!-- Policies Section (Initially Hidden) -->
+        <section id="policiesSection" class="policies-tab fade-in" style="display:none;">
+            <h3>Bike Room Policies</h3>
+            <ul>
+                <li>The bike room is accessible to all residents who have registered their bicycles with management and have paid the annual registration fee of $25.00.</li>
+                <li>All bicycle registration fees must be paid annually no later than March 1st each fiscal year by cheque made payable to HSCC 753.</li>
+                <li>E-bikes are permitted to be stored in the bicycle room. Residents are not permitted to store bicycles or e-bikes in their units.</li>
+                <li>Non-registered individuals are not permitted to enter the bike room.</li>
+                <li>Non-registered bikes will be disposed of or donated to a registered charity.</li>
+                <li>Registration includes providing information about the bicycle (e.g., make, model & color).</li>
+                <li>Bicycles should be stored properly in the designated racks or spaces within the bike room.</li>
+                <li>Do not obstruct pathways or access to other bicycles.</li>
+                <li>Residents should ensure that their bicycles are securely locked when stored in the bike room.</li>
+                <li>Failure to adhere to these policies may result in restrictions on bike room access.</li>
+                <li>Residents must maintain cleanliness; any obstruction in the bike room area may result in a cleaning fee.</li>
+                <li>No bicycles are permitted to be used in the elevators or hallways. All bicycles must be registered with property management and stored in the designated bicycle room.</li>
+                <li>The Board of Directors and Corporation are not liable for any theft, damage, or injuries that may occur in the bike room. Use the facility at your own risk.</li>
+            </ul>
+            <p>In case of an emergency, please contact Security at 647-308-3441.</p>
+            <button onclick="goBack()" class="button-hover">Back to Welcome Page</button>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="inquiries fade-in">
+            <h3>Have any inquiries?</h3>
+            <p>If you have any questions or need further assistance, please reach out to management at:</p>
+            <p>Email: <a href="mailto:oak2.on@fsresidential.com">oak2.on@fsresidential.com</a></p>
+            <p>Phone: <a href="tel:9059010308">905-901-0308</a> / <a href="tel:9052379672">905-237-9672</a></p>
+        </section>
+
+        <footer>
+            <p>&copy; 2024 HSCC 753. All rights reserved.</p>
+        </footer>
+    </main>
+
+    <script>
+        // Fade-in effect for elements
+        document.addEventListener('DOMContentLoaded', () => {
+            const fadeInElements = document.querySelectorAll('.fade-in');
+            fadeInElements.forEach((element) => {
+                element.classList.add('fade-in-active');
+            });
+        });
+
+        // Show policies section
+        function showPolicies() {
+            document.querySelector('.intro').style.display = 'none';
+            document.getElementById('policiesSection').style.display = 'block';
+        }
+
+        // Show management login section
+        function showManagementLogin() {
+            document.querySelector('.intro').style.display = 'none';
+            document.getElementById('managementLoginSection').style.display = 'block';
+        }
+
+        // Go back to the welcome page
+        function goBack() {
+            document.querySelector('.intro').style.display = 'block';
+            document.getElementById('policiesSection').style.display = 'none';
+            document.getElementById('managementLoginSection').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
